@@ -1,0 +1,427 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>V-FLOW INTAKE | VENVM LINE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "tertiary-fixed-dim": "#c4c7ca",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface-container-low": "#1a1c1f",
+                    "secondary-fixed": "#ffd9de",
+                    "primary": "#a1c9ff",
+                    "on-secondary-fixed-variant": "#900038",
+                    "on-tertiary-fixed-variant": "#44474a",
+                    "surface-dim": "#111317",
+                    "on-surface": "#e2e2e6",
+                    "on-tertiary-container": "#292c2e",
+                    "primary-fixed": "#d2e4ff",
+                    "on-tertiary": "#2d3133",
+                    "error-container": "#93000a",
+                    "on-secondary": "#660025",
+                    "surface-container": "#1e2023",
+                    "on-primary-container": "#002d52",
+                    "background": "#111317",
+                    "tertiary": "#c4c7ca",
+                    "on-secondary-container": "#5a0020",
+                    "secondary": "#ffb2be",
+                    "surface-bright": "#37393d",
+                    "on-primary-fixed-variant": "#00487f",
+                    "on-primary": "#00325a",
+                    "inverse-primary": "#0061a7",
+                    "surface": "#111317",
+                    "on-background": "#e2e2e6",
+                    "surface-tint": "#a1c9ff",
+                    "primary-container": "#0096ff",
+                    "surface-container-highest": "#333538",
+                    "on-error": "#690005",
+                    "inverse-surface": "#e2e2e6",
+                    "tertiary-container": "#909396",
+                    "error": "#ffb4ab",
+                    "inverse-on-surface": "#2f3034",
+                    "surface-container-high": "#282a2d",
+                    "on-primary-fixed": "#001c37",
+                    "on-surface-variant": "#bfc7d5",
+                    "tertiary-fixed": "#e0e3e6",
+                    "outline": "#89919e",
+                    "secondary-container": "#ff4e7c",
+                    "outline-variant": "#3f4753",
+                    "secondary-fixed-dim": "#ffb2be",
+                    "surface-variant": "#333538",
+                    "surface-container-lowest": "#0c0e11",
+                    "primary-fixed-dim": "#a1c9ff",
+                    "on-secondary-fixed": "#400014",
+                    "on-error-container": "#ffdad6"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+                },
+                "fontFamily": {
+                    "headline": ["Geist"],
+                    "display": ["Geist"],
+                    "body": ["Inter"],
+                    "label": ["JetBrains Mono"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .carbon-texture {
+        background-image: linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.02) 75%, transparent 75%, transparent);
+        background-size: 4px 4px;
+    }
+    .glass-panel {
+        background: rgba(17, 19, 23, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(226, 226, 230, 0.1);
+    }
+    .text-glow-blue {
+        text-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+    }
+    .thumb-btn {
+        transition: all 0.2s ease;
+    }
+    .thumb-btn:hover, .thumb-btn.active {
+        border-color: #0096ff;
+        box-shadow: 0 0 12px rgba(0, 150, 255, 0.2);
+    }
+    .qty-btn:hover {
+        background: #282a2d;
+    }
+    .qty-btn:active {
+        background: #333538;
+    }
+</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/10">
+<div class="flex justify-between items-center h-20 px-6 md:px-12 max-w-[1440px] mx-auto">
+<a href="index.html" class="font-headline font-bold text-headline-md tracking-tighter text-on-surface">VENVM LINE</a>
+<div class="hidden md:flex gap-10">
+<a class="font-headline text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="index.html">Performance</a>
+<a class="font-headline text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Styling</a>
+<a class="font-headline text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Tuning</a>
+<a class="font-headline text-label-md uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Shop</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-sm px-4 py-1.5 text-xs font-label tracking-widest focus:ring-1 focus:ring-primary w-48 transition-all" placeholder="SEARCH" type="text">
+</div>
+<a href="cart.html" class="text-on-surface hover:bg-surface-bright/20 p-2 transition-all"><span class="material-symbols-outlined">shopping_cart</span></a>
+<button class="text-on-surface hover:bg-surface-bright/20 p-2 transition-all"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="pt-24 pb-4 px-6 md:px-12 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-2 font-label text-label-sm text-on-surface-variant tracking-widest">
+<a href="index.html" class="hover:text-primary transition-colors">HOME</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<a href="index.html" class="hover:text-primary transition-colors">SHOP</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">V-FLOW INTAKE</span>
+</div>
+</div>
+
+<!-- Product Detail -->
+<section class="px-6 md:px-12 max-w-[1440px] mx-auto pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+
+<!-- Left: Product Images -->
+<div class="space-y-4">
+<div class="aspect-square bg-surface-container rounded-lg overflow-hidden glass-panel carbon-texture" id="mainImageWrap">
+<img id="mainImage" class="w-full h-full object-cover transition-opacity duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5" alt="V-FLOW INTAKE main view">
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button onclick="switchImage(0)" class="thumb-btn active aspect-square bg-surface-container rounded overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5" alt="Thumbnail 1">
+</button>
+<button onclick="switchImage(1)" class="thumb-btn aspect-square bg-surface-container rounded overflow-hidden border-2 border-outline-variant/30">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYpfxoyS-nJpGP3Smy4Sg5Qu3XDHb-Hr268TIiaojuShpyKolUEH6_3Z9DQNE9-pJJfk14kiJruUm7-VLmZ-ut7Nt6xIcESgZP1MU905mEqkQgxhHrY4Ry-MoHQIn4VUFj-UYSiMNl97oZ4R-nDoxoaRgY0p-zMF8_AR7wGoqs5H8T_1CXo2dOQR8es4z8wp5Xs_LVhziEXxsCUPDzpENvgLFEjRrmK21aRMuSbEpEgmbZoMDsvjCF0tf2pyGKULV1haMnG04Zzxek" alt="Thumbnail 2">
+</button>
+<button onclick="switchImage(2)" class="thumb-btn aspect-square bg-surface-container rounded overflow-hidden border-2 border-outline-variant/30">
+<img class="w-full h-full object-cover brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurD_jLBZq1wu8N1IfiqgjZkMrxA2Jhy41YofeIbSNOxP5Ap7ug_-0JYEFaNFQj5UetcI6AwZVmX6SrdOFQCyc8mZnZxi-Id7AbImgy7UO9e23Dzg5SuyA3H04zS30sGThVR9w9OD7S4BakdFT-jzOmXmEor4NP9zBhVMNwo7ObEW1g3gM82Pr2BGRja6lOnLgZJz_zims2L0ht-N9KYVGzrvUzUHbhQ36yvKwG6X1pwoCqo85u7B-iuG9cjmwEBD9RE9rreYs-1Yd" alt="Thumbnail 3">
+</button>
+<button onclick="switchImage(3)" class="thumb-btn aspect-square bg-surface-container rounded overflow-hidden border-2 border-outline-variant/30">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5" alt="Thumbnail 4">
+</button>
+</div>
+</div>
+
+<!-- Right: Product Info -->
+<div class="flex flex-col justify-start pt-2">
+<!-- Tags -->
+<div class="flex items-center gap-3 mb-6">
+<span class="inline-block px-2.5 py-1 bg-secondary text-on-secondary text-[10px] font-label font-bold rounded-sm tracking-widest">RACE SPEC</span>
+<span class="inline-block px-2.5 py-1 bg-surface-container-highest text-on-surface text-[10px] font-label font-bold rounded-sm tracking-widest">NEW ARRIVAL</span>
+</div>
+
+<!-- Title & Price -->
+<h1 class="font-headline font-bold text-4xl md:text-5xl text-on-surface tracking-tighter mb-2">V-FLOW INTAKE</h1>
+<p class="font-label text-label-sm text-on-surface-variant tracking-widest uppercase mb-6">Carbon Fiber Cold Air Intake System</p>
+
+<div class="flex items-baseline gap-4 mb-8">
+<span class="font-headline font-bold text-3xl text-primary text-glow-blue">$1,850</span>
+<span class="font-label text-label-sm text-on-surface-variant line-through">$2,100</span>
+<span class="font-label text-label-sm text-secondary">SAVE $250</span>
+</div>
+
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/10 mb-8"></div>
+
+<!-- Specs Grid -->
+<div class="grid grid-cols-3 gap-4 mb-8">
+<div class="glass-panel p-4 rounded-lg text-center carbon-texture">
+<span class="material-symbols-outlined text-primary text-2xl mb-2" style="font-variation-settings: 'FILL' 1;">speed</span>
+<p class="font-headline font-bold text-on-surface text-lg">+18</p>
+<p class="font-label text-label-sm text-on-surface-variant tracking-widest">WHP</p>
+</div>
+<div class="glass-panel p-4 rounded-lg text-center carbon-texture">
+<span class="material-symbols-outlined text-primary text-2xl mb-2" style="font-variation-settings: 'FILL' 1;">scale</span>
+<p class="font-headline font-bold text-on-surface text-lg">-2.1kg</p>
+<p class="font-label text-label-sm text-on-surface-variant tracking-widest">WEIGHT</p>
+</div>
+<div class="glass-panel p-4 rounded-lg text-center carbon-texture">
+<span class="material-symbols-outlined text-primary text-2xl mb-2" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="font-headline font-bold text-on-surface text-lg">CARB</p>
+<p class="font-label text-label-sm text-on-surface-variant tracking-widest">LEGAL</p>
+</div>
+</div>
+
+<!-- Features -->
+<div class="mb-8">
+<h3 class="font-headline font-bold text-label-md text-on-surface tracking-widest uppercase mb-4">Key Features</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+2x2 Twill Pre-preg Carbon Fiber Construction
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+High-flow Washable & Reusable Air Filter
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+CNC-machined 6061 Aluminum MAF Housing
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+Dyno-tested +18 WHP / +14 WTQ Gains
+</li>
+<li class="flex items-center gap-3 text-on-surface-variant text-body-sm">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+Direct Bolt-on — No Cutting or Modification
+</li>
+</ul>
+</div>
+
+<!-- Vehicle Fitment -->
+<div class="mb-8">
+<h3 class="font-headline font-bold text-label-md text-on-surface tracking-widest uppercase mb-4">Fitment</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 border border-outline-variant/30 rounded-xl font-label text-label-sm text-on-surface-variant tracking-wider">BMW G80 M3</span>
+<span class="px-3 py-1.5 border border-outline-variant/30 rounded-xl font-label text-label-sm text-on-surface-variant tracking-wider">BMW G82 M4</span>
+<span class="px-3 py-1.5 border border-outline-variant/30 rounded-xl font-label text-label-sm text-on-surface-variant tracking-wider">BMW G87 M2</span>
+<span class="px-3 py-1.5 border border-outline-variant/30 rounded-xl font-label text-label-sm text-on-surface-variant tracking-wider">S58 ENGINE</span>
+</div>
+</div>
+
+<!-- Divider -->
+<div class="w-full h-px bg-outline-variant/10 mb-8"></div>
+
+<!-- Quantity & Add to Cart -->
+<div class="flex flex-col sm:flex-row gap-4 mb-6">
+<div class="flex items-center border border-outline-variant/30 rounded-lg overflow-hidden">
+<button onclick="updateQty(-1)" class="qty-btn px-4 py-3 text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span id="qtyDisplay" class="px-6 py-3 font-label text-label-md text-on-surface text-center min-w-[3rem]">1</span>
+<button onclick="updateQty(1)" class="qty-btn px-4 py-3 text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+<a href="cart.html" class="flex-1 py-3.5 bg-primary-container text-on-primary-container font-headline font-bold text-label-md uppercase tracking-widest rounded-lg hover:scale-[1.02] transition-all duration-300 text-center flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">shopping_cart</span>
+ADD TO CART
+</a>
+</div>
+
+<!-- Trust badges -->
+<div class="flex items-center gap-6 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-label text-label-sm tracking-wider">FREE SHIPPING</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label text-label-sm tracking-wider">2-YEAR WARRANTY</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Technical Specs Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-6 md:px-12">
+<h2 class="font-headline font-bold text-headline-xl text-on-surface mb-2 tracking-tighter">TECHNICAL DATA</h2>
+<p class="font-label text-label-md text-primary uppercase tracking-widest mb-12">Engineering Specifications</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/10">
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">MATERIAL</span>
+<span class="font-body text-body-sm text-on-surface">2x2 Twill Pre-preg Carbon Fiber</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">FILTER TYPE</span>
+<span class="font-body text-body-sm text-on-surface">Oiled Cotton Gauze, Washable</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">MAF HOUSING</span>
+<span class="font-body text-body-sm text-on-surface">CNC 6061-T6 Aluminum, Anodized</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">POWER GAIN</span>
+<span class="font-body text-body-sm text-on-surface">+18 WHP / +14 WTQ (Baseline Dyno)</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">WEIGHT</span>
+<span class="font-body text-body-sm text-on-surface">1.4 kg (OEM: 3.5 kg)</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">INSTALL TIME</span>
+<span class="font-body text-body-sm text-on-surface">45 min — Bolt-on, No Tune Required</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">EMISSIONS</span>
+<span class="font-body text-body-sm text-on-surface">CARB E.O. Pending (50-State Legal)</span>
+</div>
+<div class="bg-background p-6 flex justify-between items-center">
+<span class="font-label text-label-sm text-on-surface-variant tracking-widest">WARRANTY</span>
+<span class="font-body text-body-sm text-on-surface">2 Years / Unlimited Mileage</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Related Products -->
+<section class="py-24 px-6 md:px-12 max-w-[1440px] mx-auto">
+<h2 class="font-headline font-bold text-headline-xl text-on-surface mb-2 tracking-tighter">YOU MAY ALSO NEED</h2>
+<p class="font-label text-label-md text-primary uppercase tracking-widest mb-12">Complementary Components</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Related 1 -->
+<div class="glass-panel p-5 rounded-lg carbon-texture group hover:border-primary/30 transition-all cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container rounded overflow-hidden mb-5">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYpfxoyS-nJpGP3Smy4Sg5Qu3XDHb-Hr268TIiaojuShpyKolUEH6_3Z9DQNE9-pJJfk14kiJruUm7-VLmZ-ut7Nt6xIcESgZP1MU905mEqkQgxhHrY4Ry-MoHQIn4VUFj-UYSiMNl97oZ4R-nDoxoaRgY0p-zMF8_AR7wGoqs5H8T_1CXo2dOQR8es4z8wp5Xs_LVhziEXxsCUPDzpENvgLFEjRrmK21aRMuSbEpEgmbZoMDsvjCF0tf2pyGKULV1haMnG04Zzxek" alt="ValveMaster TI Exhaust">
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-body-md text-on-surface">VALVEMASTER TI</h4>
+<span class="font-label text-secondary text-label-sm">$4,200</span>
+</div>
+<p class="font-body text-body-sm text-on-surface-variant mb-4">Full titanium valvetronic exhaust system</p>
+<a href="cart.html" class="w-full py-2.5 bg-surface-container-high border border-outline-variant/30 text-on-surface font-headline font-bold text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all text-center block rounded">ADD TO CART</a>
+</div>
+<!-- Related 2 -->
+<div class="glass-panel p-5 rounded-lg carbon-texture group hover:border-primary/30 transition-all cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container rounded overflow-hidden mb-5">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurD_jLBZq1wu8N1IfiqgjZkMrxA2Jhy41YofeIbSNOxP5Ap7ug_-0JYEFaNFQj5UetcI6AwZVmX6SrdOFQCyc8mZnZxi-Id7AbImgy7UO9e23Dzg5SuyA3H04zS30sGThVR9w9OD7S4BakdFT-jzOmXmEor4NP9zBhVMNwo7ObEW1g3gM82Pr2BGRja6lOnLgZJz_zims2L0ht-N9KYVGzrvUzUHbhQ36yvKwG6X1pwoCqo85u7B-iuG9cjmwEBD9RE9rreYs-1Yd" alt="Stage 2 ECU Tune">
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-body-md text-on-surface">STAGE 2 ECU TUNE</h4>
+<span class="font-label text-secondary text-label-sm">$1,200</span>
+</div>
+<p class="font-body text-body-sm text-on-surface-variant mb-4">Custom calibration for intake + exhaust combos</p>
+<a href="cart.html" class="w-full py-2.5 bg-surface-container-high border border-outline-variant/30 text-on-surface font-headline font-bold text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all text-center block rounded">ADD TO CART</a>
+</div>
+<!-- Related 3 -->
+<div class="glass-panel p-5 rounded-lg carbon-texture group hover:border-primary/30 transition-all cursor-pointer">
+<div class="aspect-[4/3] bg-surface-container rounded overflow-hidden mb-5">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5" alt="Carbon Charge Pipe">
+</div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline font-bold text-body-md text-on-surface">CARBON CHARGE PIPE</h4>
+<span class="font-label text-secondary text-label-sm">$680</span>
+</div>
+<p class="font-body text-body-sm text-on-surface-variant mb-4">Pre-preg carbon fiber with titanium coupler</p>
+<a href="cart.html" class="w-full py-2.5 bg-surface-container-high border border-outline-variant/30 text-on-surface font-headline font-bold text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all text-center block rounded">ADD TO CART</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-6 md:px-12 py-16 max-w-[1440px] mx-auto">
+<div class="space-y-6">
+<a href="index.html" class="font-headline font-bold text-headline-sm text-on-surface">VENVM LINE</a>
+<p class="font-body text-body-sm text-on-surface-variant opacity-80">Forging the future of high-performance automotive engineering.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="font-headline font-bold text-label-md text-on-surface tracking-widest">SUPPORT</h5>
+<ul class="space-y-3 font-body text-body-sm text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">Warranty</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Dealers</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-headline font-bold text-label-md text-on-surface tracking-widest">LEGAL</h5>
+<ul class="space-y-3 font-body text-body-sm text-on-surface-variant">
+<li><a class="hover:text-secondary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Terms</a></li>
+<li><a class="hover:text-secondary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-headline font-bold text-label-md text-on-surface tracking-widest">NEWSLETTER</h5>
+<p class="font-body text-body-sm text-on-surface-variant mb-4">Get early access to limited edition drops.</p>
+<div class="flex border-b border-outline-variant focus-within:border-primary transition-colors">
+<input class="bg-transparent border-none p-0 flex-1 text-xs font-label tracking-widest focus:ring-0" placeholder="EMAIL ADDRESS" type="email">
+<button class="p-2 text-primary hover:translate-x-1 transition-transform"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<div class="px-6 md:px-12 py-8 border-t border-outline-variant/5 text-center">
+<p class="font-body text-body-sm text-on-surface-variant opacity-60">© 2026 VENVM LINE. ENGINEERED TO PERFECTION.</p>
+</div>
+</footer>
+
+<script>
+const images = [
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5',
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuAYpfxoyS-nJpGP3Smy4Sg5Qu3XDHb-Hr268TIiaojuShpyKolUEH6_3Z9DQNE9-pJJfk14kiJruUm7-VLmZ-ut7Nt6xIcESgZP1MU905mEqkQgxhHrY4Ry-MoHQIn4VUFj-UYSiMNl97oZ4R-nDoxoaRgY0p-zMF8_AR7wGoqs5H8T_1CXo2dOQR8es4z8wp5Xs_LVhziEXxsCUPDzpENvgLFEjRrmK21aRMuSbEpEgmbZoMDsvjCF0tf2pyGKULV1haMnG04Zzxek',
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBurD_jLBZq1wu8N1IfiqgjZkMrxA2Jhy41YofeIbSNOxP5Ap7ug_-0JYEFaNFQj5UetcI6AwZVmX6SrdOFQCyc8mZnZxi-Id7AbImgy7UO9e23Dzg5SuyA3H04zS30sGThVR9w9OD7S4BakdFT-jzOmXmEor4NP9zBhVMNwo7ObEW1g3gM82Pr2BGRja6lOnLgZJz_zims2L0ht-N9KYVGzrvUzUHbhQ36yvKwG6X1pwoCqo85u7B-iuG9cjmwEBD9RE9rreYs-1Yd',
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCVoXahjg9ixu3GwEbE-XpNRMetX8LliT_JkXbA9NuRCXT32ui5jR8vI_SSb0hxtkf3ikQ3UU1HDoWlmCQa1b5fe6gZSUZ1fedxwesRLXJIY9PDJEmFM4xWeu69Sc3OlmvVGIKqlsa5lfGbje4No9I2vZZAUMp7BsrFswJBfxAGVyhnT1GwlH1Q6mhT0GldWPTOrbzeciTx6OUviKopriqLN3Qr9I3cgVGFLd-Yy_M1gX_HLYPg8ES9Z__N2h7UQwxzHyFeohWF67D5'
+];
+
+function switchImage(index) {
+    document.getElementById('mainImage').src = images[index];
+    document.querySelectorAll('.thumb-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+        btn.classList.toggle('border-primary', i === index);
+        btn.classList.toggle('border-outline-variant/30', i !== index);
+    });
+}
+
+let qty = 1;
+function updateQty(delta) {
+    qty = Math.max(1, qty + delta);
+    document.getElementById('qtyDisplay').textContent = qty;
+}
+</script>
+</body></html>
