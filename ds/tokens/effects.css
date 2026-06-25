@@ -1,0 +1,165 @@
+/* VENVM LINE — Effects: radii, glass, texture, glow, motion
+   ------------------------------------------------------------------
+   Depth here is built from TONAL LAYERS + GLASSMORPHISM, not drop
+   shadows. Borders define cards; azure glows mark focus/emphasis. */
+
+:root {
+  /* ---- Corner radii (implemented storefront scale) ---- */
+  --radius-sm: 2px;     /* default — sharp chips, search field */
+  --radius-md: 4px;     /* buttons, inputs, cards (lg) */
+  --radius-lg: 8px;     /* cards & modals (xl) */
+  --radius-xl: 12px;    /* status chips, logo tile (full) */
+  --radius-pill: 9999px;
+
+  /* ---- Glassmorphism ----
+     Depth is layered: a frosted fill + saturated backdrop, a 1px top
+     inner-highlight (light catching the bevel) and a soft contact
+     shadow that floats the panel off the void. */
+  --glass-fill: rgba(11, 13, 16, 0.66);
+  --glass-blur: 22px;
+  --glass-saturate: 1.5; /* @kind other */
+  --glass-border-color: rgba(226, 226, 230, 0.12);
+  --glass-border: 1px solid var(--glass-border-color); /* @kind other */
+  --glass-border-hover: rgba(161, 201, 255, 0.55);
+  /* Inner top-edge highlight + faint inner floor shade */
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.07), inset 0 -1px 0 rgba(0, 0, 0, 0.25); /* @kind other */
+  /* Soft contact shadow that lifts glass off the background */
+  --glass-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.7); /* @kind other */
+  --glass-shadow-hover: 0 26px 60px -20px rgba(0, 0, 0, 0.8); /* @kind other */
+  --glass-elevation: var(--glass-inset), var(--glass-shadow); /* @kind other */
+
+  /* Nav uses a stronger, more opaque blur */
+  --nav-fill: rgba(8, 9, 12, 0.82);
+  --nav-blur: 24px;
+
+  /* ---- Glows (replace elevation shadows) ---- */
+  --glow-blue-text: 0 0 20px rgba(0, 150, 255, 0.3);
+  --glow-blue-soft: 0 0 12px rgba(0, 150, 255, 0.2);
+  --glow-blue-ring: 0 0 0 1px rgba(0, 150, 255, 0.4), 0 8px 28px -6px rgba(0, 150, 255, 0.35); /* @kind other */
+  --focus-glow: 0 2px 0 0 #0096ff;   /* bottom-border focus accent */
+
+  /* The lone "real" shadow used anywhere — hero drop only */
+  --shadow-hero: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+  /* ---- Background washes ---- */
+  /* Radial azure aura used behind auth / focal sections */
+  --bg-glow: radial-gradient(ellipse 600px 400px at 50% 0%, rgba(0, 150, 255, 0.06) 0%, transparent 70%);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* @kind other */
+  --dur-fast: 150ms;   /* @kind other */
+  --dur-base: 200ms;   /* @kind other */
+  --dur-slow: 300ms;   /* @kind other */
+  --dur-reveal: 500ms; /* @kind other */
+  --hover-lift: scale(1.02);  /* @kind other */
+  --press-scale: scale(0.98); /* @kind other */
+  --lift-1: translateY(-2px); /* @kind other */
+  --lift-2: translateY(-3px); /* @kind other */
+}
+
+/* ---- Carbon-fibre micro-texture ----
+   A 45° striped weave at 2% white. Layer behind glass panels for
+   the signature "etched carbon" feel. Apply class .carbon-texture. */
+.carbon-texture {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.02) 75%, transparent 75%, transparent
+  );
+  background-size: 4px 4px;
+}
+
+/* ---- Frosted glass panel ---- */
+.glass-panel {
+  background: var(--glass-fill);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: var(--glass-border);
+  box-shadow: var(--glass-elevation);
+}
+
+/* ---- Azure glow text ---- */
+.text-glow-blue {
+  text-shadow: var(--glow-blue-text);
+}
+
+/* ---- Brand glitch ----
+   Minimal chromatic-split jitter for the "LINE" of the wordmark.
+   Four palette-matched ghosts (2x azure-cyan + 2x magenta) sit flush
+   behind the text and break into thin horizontal slices only in
+   brief, infrequent moments. The base text carries a faint glow.
+   Apply .venvm-glitch and set data-text to the same string. */
+.venvm-glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--primary);
+  text-shadow:
+    0 0 6px rgba(79, 200, 232, 0.45),
+    0 0 18px rgba(79, 200, 232, 0.25);
+}
+.venvm-glitch span.g {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+.venvm-glitch span.g1 {
+  color: var(--secondary);
+  text-shadow: -1px 0 var(--secondary-container);
+  animation: venvm-glitch-a 4.6s steps(1) infinite;
+}
+.venvm-glitch span.g2 {
+  color: var(--primary-fixed-dim);
+  text-shadow: 1px 0 var(--primary-container);
+  animation: venvm-glitch-b 4.6s steps(1) infinite;
+}
+.venvm-glitch span.g3 {
+  color: var(--secondary-fixed-dim);
+  text-shadow: 1px 0 var(--secondary);
+  animation: venvm-glitch-c 4.6s steps(1) infinite;
+}
+.venvm-glitch span.g4 {
+  color: var(--primary);
+  text-shadow: -1px 0 var(--primary-container);
+  animation: venvm-glitch-d 4.6s steps(1) infinite;
+}
+/* Thin (~6-9% tall) slices, offset for only a few frames near loop end. */
+@keyframes venvm-glitch-a {
+  0%, 86%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+  87% { clip-path: inset(14% 0 80% 0); transform: translate(-2px,0); opacity: 0.9; }
+  90% { clip-path: inset(46% 0 48% 0); transform: translate(2px,0); opacity: 0.85; }
+  93% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+}
+@keyframes venvm-glitch-b {
+  0%, 88%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+  89% { clip-path: inset(72% 0 22% 0); transform: translate(2px,0); opacity: 0.9; }
+  92% { clip-path: inset(30% 0 64% 0); transform: translate(-2px,0); opacity: 0.85; }
+  95% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+}
+@keyframes venvm-glitch-c {
+  0%, 84%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+  85% { clip-path: inset(60% 0 34% 0); transform: translate(-2px,0); opacity: 0.8; }
+  91% { clip-path: inset(8% 0 86% 0); transform: translate(1px,0); opacity: 0.85; }
+  94% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+}
+@keyframes venvm-glitch-d {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+  91% { clip-path: inset(38% 0 56% 0); transform: translate(2px,0); opacity: 0.85; }
+  96% { clip-path: inset(84% 0 10% 0); transform: translate(-1px,0); opacity: 0.8; }
+  98% { clip-path: inset(0 0 100% 0); transform: translate(0,0); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .venvm-glitch span.g { animation: none; opacity: 0; }
+}
+
+/* ---- Material Symbols icon defaults ---- */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}
+.material-symbols-outlined.fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
