@@ -1,0 +1,24 @@
+/* VENVM LINE — Spacing & Layout
+   ------------------------------------------------------------------
+   4px baseline grid. Compact, information-dense rhythm typical of
+   high-end technical software. Fixed 1440px max canvas on desktop. */
+
+:root {
+  /* ---- Baseline scale (4px grid) ---- */
+  --space-base: 4px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 88px;   /* section vertical rhythm */
+
+  /* ---- Layout ---- */
+  --layout-max: 1440px;
+  --gutter: 20px;
+  --margin-mobile: 16px;
+  --margin-desktop: 48px;
+  --nav-height: 80px;
+  --section-pad-y: 80px;   /* tightened section rhythm */
+}

@@ -1,0 +1,100 @@
+/* VENVM LINE — Color System
+   ------------------------------------------------------------------
+   A Material-3 tonal palette on a matte "void" black foundation.
+   Functional color pierces the dark: an azure-blue container for
+   primary actions, a vivid magenta container for energy/alerts.
+   These are the IMPLEMENTED storefront values (source of truth). */
+
+:root {
+  /* ---- Base / brand seeds ---- */
+  --venvm-azure: #0096ff;        /* primary-container — the CTA blue */
+  --venvm-azure-light: #4fc8e8;  /* primary — links, accents, glow text (bluish cyan) */
+  --venvm-magenta: #ff4e7c;      /* secondary-container — high energy */
+  --venvm-pink: #ffb2be;         /* secondary — prices, accent text */
+
+  /* ---- Surfaces (tonal layers, darkest → lightest) ----
+     Driven to a deep MATTE BLACK finish — every step darkened by the
+     same ~0.6 ratio so the lighter surfaces reflect the same shift. */
+  --surface-container-lowest: #07080a;  /* deepest wells, footers, sections */
+  --background: #0a0b0e;                /* matte black page base */
+  --surface: #0a0b0e;
+  --surface-dim: #0a0b0e;
+  --surface-container-low: #101113;
+  --surface-container: #121315;         /* image wells, default fills */
+  --surface-container-high: #18191b;    /* raised buttons, hover wells */
+  --surface-container-highest: #1f2022; /* neutral chips */
+  --surface-bright: #212225;
+
+  /* ---- Primary (azure CTA / bluish-cyan accent) ---- */
+  --primary: #4fc8e8;
+  --primary-container: #0096ff;
+  --on-primary: #00325a;
+  --on-primary-container: #002d52;
+  --primary-fixed: #c3ecf6;
+  --primary-fixed-dim: #4fc8e8;
+  --on-primary-fixed: #001c37;
+  --on-primary-fixed-variant: #00487f;
+  --inverse-primary: #0061a7;
+  --surface-tint: #4fc8e8;
+
+  /* ---- Secondary (magenta / pink) ---- */
+  --secondary: #ffb2be;
+  --secondary-container: #ff4e7c;
+  --on-secondary: #660025;
+  --on-secondary-container: #5a0020;
+  --secondary-fixed: #ffd9de;
+  --secondary-fixed-dim: #ffb2be;
+  --on-secondary-fixed: #400014;
+  --on-secondary-fixed-variant: #900038;
+
+  /* ---- Tertiary (cool neutral) ---- */
+  --tertiary: #c4c7ca;
+  --tertiary-container: #909396;
+  --on-tertiary: #2d3133;
+  --on-tertiary-container: #292c2e;
+  --tertiary-fixed: #e0e3e6;
+  --tertiary-fixed-dim: #c4c7ca;
+  --on-tertiary-fixed: #191c1e;
+  --on-tertiary-fixed-variant: #44474a;
+
+  /* ---- Error ---- */
+  --error: #ffb4ab;
+  --error-container: #93000a;
+  --on-error: #690005;
+  --on-error-container: #ffdad6;
+
+  /* ---- Text / content on surfaces ---- */
+  --on-surface: #e2e2e6;          /* cool white — high-emphasis text */
+  --on-background: #e2e2e6;
+  --on-surface-variant: #bfc7d5;  /* muted body / secondary text */
+  --inverse-surface: #e2e2e6;
+  --inverse-on-surface: #2f3034;
+
+  /* ---- Outlines ---- */
+  --outline: #89919e;             /* placeholder glyphs, disabled */
+  --outline-variant: #3f4753;     /* hairline borders, dividers */
+
+  /* ------------------------------------------------------------------
+     SEMANTIC ALIASES — prefer these in product code
+     ------------------------------------------------------------------ */
+  --text-strong: var(--on-surface);
+  --text-body: var(--on-surface-variant);
+  --text-accent: var(--primary);
+  --text-price: var(--secondary);
+  --text-placeholder: rgba(191, 199, 213, 0.4);
+
+  --surface-page: var(--background);
+  --surface-card: rgba(10, 12, 15, 0.62);   /* glass fill, see effects.css */
+  --surface-well: var(--surface-container-lowest);
+  --surface-input: var(--surface-container-lowest);
+  --surface-raised: var(--surface-container-high);
+
+  --action-primary-bg: var(--primary-container);
+  --action-primary-fg: var(--on-primary-container);
+  --action-hover-wash: rgba(255, 255, 255, 0.05);
+
+  --border-hairline: rgba(226, 226, 230, 0.1);   /* glass / card edge */
+  --border-faint: rgba(63, 71, 83, 0.3);         /* outline-variant @ 30% */
+  --divider: rgba(226, 226, 230, 0.05);
+  --focus-ring: var(--venvm-azure);
+}
